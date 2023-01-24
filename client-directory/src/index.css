@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+:root {
+  --neavyBlue: #253659;
+  --deeperGreen: #03a696;
+  --lighterGreen: #04bf9d;
+  --orage: #f28157;
+  --extra: #bf665e;
+}
+
+body {
+  background-color: var(--neavyBlue);
+}
