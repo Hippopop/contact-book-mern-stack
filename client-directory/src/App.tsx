@@ -1,8 +1,8 @@
-import { ContactCategory } from "./views/components/contactCategory";
+import { ContactCategory } from "./views/components/addContactCategory";
 
 function App() {
   return (
-    <div>
+    <div className="bg-bg-color h-screen">
       <ContactCategory />
     </div>
   );
