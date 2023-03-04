@@ -1,0 +1,9 @@
+{
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.colorTheme": "SynthWave '84",
+    "terminal.integrated.fontSize": 13,
+    "debug.console.fontSize": 13,
+    "css.customData": [
+        ".vscode/css_custom_data.json"
+    ]
+}

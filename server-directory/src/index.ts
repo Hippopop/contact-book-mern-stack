@@ -2,7 +2,8 @@ import express, { Request, Response } from 'express';
 import mongoose from 'mongoose';
 import cors from "cors";
 import * as dotenv from 'dotenv';
-import { ContactRecordModel } from './database/mongoose-schemas/phoneBook';
+import { contactCategoryRoutes } from './routes/contactCategoryRoutes';
+import { contactRoute } from './routes/contactRoutes';
 
 
 dotenv.config();
@@ -11,25 +12,13 @@ const PORT = process.env.PORT;
 
 app.use(cors());
 app.use(express.json());
-app.get('/', function (req, res) {
+
+app.get('/', function (req: Request, res: Response) {
     res.send('Hello World!');
 })
 
-app.post('/new_contact_category', async function (req: Request, res: Response) {
-
-    const { category } = req.body;
-    const newContact = new ContactRecordModel({
-        category: category,
-    });
-
-    await newContact.save();
-    res.status(200).json(newContact);
-});
-
-app.get('/all_contact_categories', async (req: Request, res: Response) => {
-    const allCategories = await ContactRecordModel.find();
-    res.json(allCategories);
-});
+app.use("/contact_category", contactCategoryRoutes);
+app.use("/contact", contactRoute);
 
 mongoose.set('strictQuery', false);
 mongoose.connect(process.env.MONGO_URL!, () => {
