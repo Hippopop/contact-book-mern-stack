@@ -1,14 +1,18 @@
+import "./index.css";
+import App from "./App";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
-
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import "./index.css";
+import ContactPage from "./views/components/ContactPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+  },
+  {
+    path: "/contacts/:contactId",
+    element: <ContactPage />,
   },
 ]);
 
